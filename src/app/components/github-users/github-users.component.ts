@@ -8,8 +8,7 @@ import { IRepo } from 'src/app/interfaces/repo';
   styleUrls: ['./github-users.component.css']
 })
 export class GithubUsersComponent implements OnInit {
-  user!:IUser
-  repos:IRepo[]=[]
+
   constructor() { }
 
   ngOnInit(): void {

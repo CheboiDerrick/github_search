@@ -9,6 +9,10 @@ import { IRepo } from '../interfaces/repo';
   providedIn: 'root'
 })
 export class GithubRequestService {
+  user!:IUser
+  repos:IRepo[]=[]
 
-  constructor() { }
+  constructor(private http:HttpClient) {
+    this.user = new User("","");
+}
 }
