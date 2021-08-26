@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IUser } from 'src/app/interfaces/user';
+import { IRepo } from 'src/app/interfaces/repo';
 
 @Component({
   selector: 'app-github-users',
@@ -6,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./github-users.component.css']
 })
 export class GithubUsersComponent implements OnInit {
-
+  user!:IUser
+  repos:IRepo[]=[]
   constructor() { }
 
   ngOnInit(): void {
