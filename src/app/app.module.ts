@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
+import { GithubServiceService } from './services/github-request.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GithubUsersComponent } from './components/github-users/github-users.component';
@@ -8,13 +10,13 @@ import { GithubUsersComponent } from './components/github-users/github-users.com
 @NgModule({
   declarations: [
     AppComponent,
-    GithubUsersComponent
+    GithubUsersComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,HttpClientModule
   ],
-  providers: [],
+  providers: [GithubServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

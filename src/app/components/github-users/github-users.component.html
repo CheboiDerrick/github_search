@@ -1,1 +1,14 @@
 <p>github-users works!</p>
+<p>{{ user.name }}</p>
+<p>{{ user.bio }}</p>
+<img src="{{ user.avatar_url }}" alt="" />
+<P> {{ user.followers }} </P>
+<p>{{ user.following }}</p>
+
+<div *ngFor='let repo of repos'>
+    <p> {{repo.name}} </p>
+    <p> {{repo.description}} </p>
+    <p> {{repo.forks}} </p>
+</div>
+
+<button (click)="search()">Click</button>

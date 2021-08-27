@@ -1,38 +1,27 @@
-
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 
-import { IUser } from '../interfaces/user';
-import { IRepo } from '../interfaces/repo';
-import { User } from '../classes/user';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class GithubRequestService {
-  user!: User
-  repos: IRepo[] = []
-
-  constructor(private http: HttpClient) {
-    this.user = new User("", "", "", 0, 0, 0, "");
-  }
-  userRequest(){
-    let promise = new Promise<void>((resolve, reject) => {
-      this.http.get<IUser>(environment.apiUrl).toPromise().then(response => {
-        this.user.name = response.name;
-        this.user.email = response.email;
-        this.user.avatar = response.avatar;
-        this.user.public_repos = response.public_repos;
-        this.user.followers = response.followers;
-        this.user.following = response.following
-        this.user.join_date = response.join_date
-        resolve()
-      },
-        error => {
-          reject(error)
-        })
-    })
-    return promise
-  }
+@Injectable()
+export class GithubServiceService{
+    private username = '';
+    // private client_id = 'd9308aacf8b204d361fd';
+    // private client_secret='62551cc02cee983fff0bac41baf170eb5a312c1c';
+    
+    constructor(private _http:HttpClient){
+        console.log('Github Service Init...');
+    }
+    
+    requestUser(){
+        // return this._http.get('https://api.github.com/users/'+this.username+'?client_id='+this.client_id+'&client_secret='+this.client_secret)
+        return this._http.get('https://api.github.com/users/'+this.username)
+    }
+    
+    getRepos(){
+        // return this._http.get('https://api.github.com/users/'+this.username+'/repos?client_id='+this.client_id+'&client_secret='+this.client_secret)
+        return this._http.get('https://api.github.com/users/'+this.username+'/repos')
+    }
+    
+    updateUsername(username:string){
+        this.username = username;
+    }
 }
