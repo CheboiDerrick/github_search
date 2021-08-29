@@ -1,19 +1,26 @@
-<div class="body">
-  <form>
+<div class="container-fluid body">
+  <form class="mx-3">
     <div class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Enter Github Username to search"
-        [(ngModel)]="username"
-        name="username"
-        (keyup)="search()"
-      />
+      <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-7">
+          <div class="search">
+            <i class="fa fa-search"></i>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="username"
+              name="username"
+              placeholder="Enter Github Username to search"
+            />
+            <button class="btn btn-primary" (click)="search()">Search</button>
+          </div>
+        </div>
+      </div>
     </div>
   </form>
 
-  <div class="padding" *ngIf='user'>
-    <div class="col-md-8">
+  <div class="padding mx-3" *ngIf="user">
+    <div class="col-md-6 card-main">
       <!-- Column -->
       <div class="card">
         <img
@@ -26,7 +33,7 @@
             <img src="{{ user.avatar_url }}" alt="user" />
           </div>
           <h3 class="m-b-0">{{ user.name }}</h3>
-          <p> {{user.email}}</p>
+          <p>{{ user.email }}</p>
           <p>{{ user.bio }}</p>
           <a
             href="javascript:void(0)"
@@ -49,44 +56,13 @@
               <small>Following</small>
             </div>
             <div class="col-lg-4 col-md-4 m-t-20">
-                <h3 class="m-b-0 font-light">{{ user.public_repos }}</h3>
-                <small>Public Repos</small>
-              </div>
+              <h3 class="m-b-0 font-light">{{ user.public_repos }}</h3>
+              <small>Public Repos</small>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <form>
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Repo name"
-        [(ngModel)]="repo_name"
-        name="repo_name"
-        (keyup)="findRepo()"
-      />
-    </div>
-  </form>
-
-  <div *ngFor="let find of found">
-    <p>{{ find.name }}</p>
-    <p>{{ find.description }}</p>
-    <p>{{ find.forks }}</p>
-    <a href="{{ find.html_url }}" target="_blank">REPO LINK</a>
-  </div>
-  <hr />
-
-  <div *ngIf="showAll">
-    <div *ngFor="let repo of repos">
-      <p>Name: {{ repo.name }}</p>
-      <p>Description: {{ repo.description }}</p>
-      <p>Forks: {{ repo.forks }}</p>
-      <a href="{{ repo.html_url }}" target="_blank">REPO LINK</a>
-    </div>
-  </div>
-
-  <button (click)="search()">Click</button>
-</div>
+ 
