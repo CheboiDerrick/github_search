@@ -30,14 +30,14 @@ export class GithubUsersComponent implements OnInit {
 
     });
 
-    // this._githubService.getRepos(this.repo_name).subscribe((repos: any) => {
-    //     this.repos = repos.items;
-    //     console.log(repos.items)
-    // });
+    this._githubService.getRepos(this.repo_name).subscribe((repos: any) => {
+        this.repos = repos.items;
+        console.log(repos.items)
+    });
   }
 
   findRepo() {
-    this._githubService.getRepos(this.repo_name).subscribe((repos: any) => {
+    this._githubService.searchByRepos(this.repo_name).subscribe((repos: any) => {
       this.repos = repos.items;
       console.log(repos.items)
     });
