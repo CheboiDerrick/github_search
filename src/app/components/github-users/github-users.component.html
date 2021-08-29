@@ -1,14 +1,92 @@
-<p>github-users works!</p>
-<p>{{ user.name }}</p>
-<p>{{ user.bio }}</p>
-<img src="{{ user.avatar_url }}" alt="" />
-<P> {{ user.followers }} </P>
-<p>{{ user.following }}</p>
+<div class="body">
+  <form>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Github Username to search"
+        [(ngModel)]="username"
+        name="username"
+        (keyup)="search()"
+      />
+    </div>
+  </form>
 
-<div *ngFor='let repo of repos'>
-    <p> {{repo.name}} </p>
-    <p> {{repo.description}} </p>
-    <p> {{repo.forks}} </p>
+  <div class="padding" *ngIf='user'>
+    <div class="col-md-8">
+      <!-- Column -->
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="https://i.imgur.com/K7A78We.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body little-profile text-center">
+          <div class="pro-img">
+            <img src="{{ user.avatar_url }}" alt="user" />
+          </div>
+          <h3 class="m-b-0">{{ user.name }}</h3>
+          <p> {{user.email}}</p>
+          <p>{{ user.bio }}</p>
+          <a
+            href="javascript:void(0)"
+            class="
+              m-t-10
+              waves-effect waves-dark
+              btn btn-primary btn-md btn-rounded
+            "
+            data-abc="true"
+            >View Repos</a
+          >
+          <p>Member since: {{ user.join_date }}</p>
+          <div class="row text-center m-t-20">
+            <div class="col-lg-4 col-md-4 m-t-20">
+              <h3 class="m-b-0 font-light">{{ user.followers }}</h3>
+              <small>Followers</small>
+            </div>
+            <div class="col-lg-4 col-md-4 m-t-20">
+              <h3 class="m-b-0 font-light">{{ user.following }}</h3>
+              <small>Following</small>
+            </div>
+            <div class="col-lg-4 col-md-4 m-t-20">
+                <h3 class="m-b-0 font-light">{{ user.public_repos }}</h3>
+                <small>Public Repos</small>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Repo name"
+        [(ngModel)]="repo_name"
+        name="repo_name"
+        (keyup)="findRepo()"
+      />
+    </div>
+  </form>
+
+  <div *ngFor="let find of found">
+    <p>{{ find.name }}</p>
+    <p>{{ find.description }}</p>
+    <p>{{ find.forks }}</p>
+    <a href="{{ find.html_url }}" target="_blank">REPO LINK</a>
+  </div>
+  <hr />
+
+  <div *ngIf="showAll">
+    <div *ngFor="let repo of repos">
+      <p>Name: {{ repo.name }}</p>
+      <p>Description: {{ repo.description }}</p>
+      <p>Forks: {{ repo.forks }}</p>
+      <a href="{{ repo.html_url }}" target="_blank">REPO LINK</a>
+    </div>
+  </div>
+
+  <button (click)="search()">Click</button>
 </div>
-
-<button (click)="search()">Click</button>

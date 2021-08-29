@@ -10,29 +10,41 @@ import { Repo } from 'src/app/classes/repo';
   styleUrls: ['./github-users.component.css']
 })
 export class GithubUsersComponent implements OnInit {
- 
-    user!:User
-    repos:Repo[]=[];
-    username:string='CheboiDerrick'
-    
-    constructor(private _githubService:GithubServiceService){
-        console.log('Github Component Init...');   
-    }
-    
-    search(){
-        // this._githubService.updateUsername(this.username);
-        
-        this._githubService.requestUser().subscribe((user: any) => {
-            this.user = user;
-            console.log(user);
 
-        });
-        
-        // this._githubService.getRepos().subscribe((repos: any) => {
-        //     this.repos = repos;
-        //     console.log(repos)
-        // });
-    }
+  user!: User
+  repos: Repo[] = [];
+  username!: string 
+  repo_name: string = ''
+  found!: any
+  showAll: boolean = true
+
+  constructor(private _githubService: GithubServiceService) {
+    console.log('Github Component Init...');
+  }
+
+  search() {
+    this._githubService.updateUsername(this.username);
+    this._githubService.requestUser().subscribe((user: any) => {
+      this.user = user;
+      console.log(user);
+
+    });
+
+    // this._githubService.getRepos(this.repo_name).subscribe((repos: any) => {
+    //     this.repos = repos.items;
+    //     console.log(repos.items)
+    // });
+  }
+
+  findRepo() {
+    this._githubService.getRepos(this.repo_name).subscribe((repos: any) => {
+      this.repos = repos.items;
+      console.log(repos.items)
+    });
+    this.found = this.repos.filter(repo => repo.name.toLocaleLowerCase().includes(this.repo_name.toLocaleLowerCase()));
+    console.log(this.found);
+    return this.found
+  }
 
 
   ngOnInit(): void {

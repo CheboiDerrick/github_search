@@ -3,4 +3,5 @@ export interface IRepo {
     description:string
     forks:number
     watchers:number
+    html_url:string
 }
