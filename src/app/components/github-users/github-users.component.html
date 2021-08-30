@@ -32,7 +32,7 @@
           <div class="pro-img">
             <img src="{{ user.avatar_url }}" alt="user" />
           </div>
-          <h3 class="m-b-0">{{ user.name }}</h3>
+          <h3 class="m-b-0">{{ user.login }}</h3>
           <p>{{ user.email }}</p>
           <p>{{ user.bio }}</p>
           <a
@@ -64,5 +64,6 @@
       </div>
     </div>
   </div>
+  <app-github-repository [repos]='repos'></app-github-repository>
 
  

@@ -24,7 +24,7 @@ export class GithubServiceService {
     getUserRepos() {
         return this._http.get('https://api.github.com/users/' + this.username + '/repos?client_id=' + this.client_id + '&client_secret=' + this.client_secret)
 
-    }
+    }    
 
     updateUsername(username: string) {
         this.username = username;

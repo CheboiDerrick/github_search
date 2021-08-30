@@ -13,7 +13,7 @@ export class GithubUsersComponent implements OnInit {
 
   user!: User
   repos: Repo[] = [];
-  username!: string 
+  username: string = 'CheboiDerrick'
   repo_name: string = ''
   found!: any
   showAll: boolean = true
@@ -27,24 +27,23 @@ export class GithubUsersComponent implements OnInit {
     this._githubService.requestUser().subscribe((user: any) => {
       this.user = user;
       console.log(user);
-
     });
+    this._githubService.getUserRepos().subscribe((repos: any) => {
+      this.repos = repos
+      console.log(repos)
+    })
 
-    // this._githubService.getUserRepos(this.repo_name).subscribe((repos: any) => {
-    //     this.repos = repos.items;
-    //     console.log(repos.items)
-    // });
   }
 
-  findRepo() {
-    this._githubService.searchByRepos(this.repo_name).subscribe((repos: any) => {
-      this.repos = repos.items;
-      console.log(repos.items)
-    });
-    this.found = this.repos.filter(repo => repo.name.toLocaleLowerCase().includes(this.repo_name.toLocaleLowerCase()));
-    console.log(this.found);
-    return this.found
-  }
+  // findRepo() {
+  // this._githubService.searchByRepos(this.repo_name).subscribe((repos: any) => {
+  // this.repos = repos.items;
+  // console.log(repos.items)
+  // });
+  // this.found = this.repos.filter(repo => repo.name.toLocaleLowerCase().includes(this.repo_name.toLocaleLowerCase()));
+  // console.log(this.found);
+  // return this.found
+  // }
 
 
   ngOnInit(): void {
