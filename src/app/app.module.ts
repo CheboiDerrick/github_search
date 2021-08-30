@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GithubUsersComponent } from './components/github-users/github-users.component';
 import { GithubRepositoryComponent } from './components/github-repository/github-repository.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GithubUsersComponent,
     GithubRepositoryComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,33 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+button {
+  background: #6edaa1;
+  border-radius: 5px;
+  border: none;
+  width: 60%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 35px;
+}
+
+button:hover{
+    border: 1px solid  #6edaa1;
+    background-color: transparent;
+}
+
+.accent {
+  height: 80%;
+  width: 1px;
+  border: 1px solid #3d4851;
+  color: #25333d;
+}
+
+p {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 54px;
+  color: white;
+}
