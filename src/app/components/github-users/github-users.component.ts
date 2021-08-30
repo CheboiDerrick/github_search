@@ -32,7 +32,6 @@ export class GithubUsersComponent implements OnInit {
       this.repos = repos
       console.log(repos)
     })
-
   }
 
   // findRepo() {
@@ -45,8 +44,8 @@ export class GithubUsersComponent implements OnInit {
   // return this.found
   // }
 
-
   ngOnInit(): void {
+    this._githubService.updateUsername('CheboiDerrick');
   }
 
 }

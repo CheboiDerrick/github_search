@@ -1,40 +1,14 @@
-<!-- <form> -->
-    <!-- <div class="form-group"> -->
-      <!-- <input -->
-        <!-- type="text" -->
-        <!-- class="form-control" -->
-        <!-- placeholder="Repo name" -->
-        <!-- [(ngModel)]="repo_name" -->
-        <!-- name="repo_name" -->
-        <!-- (keyup)="findRepo()" -->
-      <!-- /> -->
-    <!-- </div> -->
-  <!-- </form> -->
-  <ul class="list-group">
-    <li *ngFor="let repo of repos" class="list-group-item d-flex justify-content-between align-items-center" >
-      {{ repo.name | titlecase}}
-      <span class="badge bg-primary rounded-pill"> {{ repo.forks }} Forks</span>
-    </li>
-  </ul>
-  <div *ngFor="let repo of repos">
-    <div class="callout callout-info border-left-color">
-      <p>{{ repo.name }}</p>
+<ul class="list-group w-50 mx-auto">
+  <li
+    *ngFor="let repo of repos"
+    class="list-group-item d-flex flex-column align-items-center "
+  >
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="{{ repo.html_url }}">
+        {{ repo.name | titlecase }}
+      </a>
+      <span class="badge bg-primary rounded-pill align-self-end"> {{ repo.forks }} Forks</span>
     </div>
     <p>{{ repo.description }}</p>
-    <p>{{ repo.forks }}</p>
-    <a href="{{ repo.html_url }}" target="_blank">REPO LINK</a>
-  </div>
-  <hr />
-<!-- 
-  <div *ngIf="showAll">
-    <div *ngFor="let repo of repos">
-      <p>Name: {{ repo.name }}</p>
-      <p>Description: {{ repo.description }}</p>
-      <p>Forks: {{ repo.forks }}</p>
-      <a href="{{ repo.html_url }}" target="_blank">REPO LINK</a>
-    </div>
-  </div> -->
-
- 
-
-
+  </li>
+</ul>
