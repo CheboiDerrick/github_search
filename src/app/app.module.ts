@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { GithubUsersComponent } from './components/github-users/github-users.component';
 import { GithubRepositoryComponent } from './components/github-repository/github-repository.component';
 import { HomeComponent } from './components/home/home.component';
+import { SearchrepoComponent } from './components/searchrepo/searchrepo.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
     GithubUsersComponent,
     GithubRepositoryComponent,
     HomeComponent,
+    SearchrepoComponent,
   ],
   imports: [
     BrowserModule,
