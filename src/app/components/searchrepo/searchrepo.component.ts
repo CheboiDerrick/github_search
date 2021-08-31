@@ -16,11 +16,11 @@ export class SearchrepoComponent implements OnInit {
   searchByRepo() {
   this._requestRepo.searchByRepos(this.repoName).subscribe((repos: any) => {
   this.repos = repos.items;
-  console.log(repos.items)
+  console.log(this.repos)
   });
-  this.found = this.repos.filter(repo => repo.name.toLocaleLowerCase().includes(this.repoName.toLocaleLowerCase()));
-  console.log(this.found);
-  return this.found
+  // this.found = this.repos.filter(repo => repo.name.toLocaleLowerCase().includes(this.repoName.toLocaleLowerCase()));
+  // console.log(this.found);
+  // return this.found
   }
 
 

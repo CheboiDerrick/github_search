@@ -6,5 +6,5 @@ export interface IUser {
     public_repos:number
     followers:number
     following:number
-    join_date:string
+    created_at:string
 }

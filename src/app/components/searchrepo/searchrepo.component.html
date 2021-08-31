@@ -1,13 +1,18 @@
-<div class="container-fluid mt-4">
-    <h2>Search Repository</h2>
-    <div class="input-group w-50 mt-3">
-        <input type="search" class="form-control rounded" placeholder="Enter repository name" aria-label="Search"
-          aria-describedby="search-addon" [(ngModel)]='repoName' name="repoName" (keyup)='searchByRepo' />
+<div class="container-fluid mt-4 w-50 mx-auto">
+    <h2 class="position-sticky">Search Repository</h2>
+    <div class="input-group w-100 mt-3">
+        <input type="search" class="form-control rounded position-sticky" placeholder="Enter repository name" aria-label="Search"
+          aria-describedby="search-addon" [(ngModel)]='repoName' name="repoName" (keyup)='searchByRepo()' />
       </div>
-      <div class="list">
+      <div class="list" *ngFor='let repo of repos'>
           <hr class="mb-0">
           <div class="my-0">
-              gh
+              <a href="{{repo.html_url}}">
+              {{repo.name | titlecase }}
+              </a> <br>
+              <p>
+               <span class="font-italic text-secondary">Description:</span> {{repo.description}}
+              </p>
           </div>
           <hr class="mt-0">
       </div>

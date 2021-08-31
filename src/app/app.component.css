@@ -1,7 +1,10 @@
-nav{
-    box-shadow: 0px 12px 7px -4px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 0px 12px 7px -4px rgba(0, 0, 0, 0.5);
+nav {
+  z-index: 999;
+  box-shadow: 0px 12px 7px -4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 12px 7px -4px rgba(0, 0, 0, 0.5);
+  background-color: #25333D;
 }
-nav li a{
-    color:white
+
+nav li a {
+  color: white;
 }

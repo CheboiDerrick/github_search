@@ -1,14 +1,12 @@
-<ul class="list-group w-50 mx-auto">
-  <li
-    *ngFor="let repo of repos"
-    class="list-group-item d-flex flex-column align-items-center "
-  >
-    <div class="d-flex justify-content-between align-items-center">
-      <a href="{{ repo.html_url }}">
-        {{ repo.name | titlecase }}
-      </a>
-      <span class="badge bg-primary rounded-pill align-self-end"> {{ repo.forks }} Forks</span>
-    </div>
-    <p>{{ repo.description }}</p>
-  </li>
-</ul>
+<div class="list w-50 mx-auto" *ngFor='let repo of repos'>
+  <hr class="mb-0">
+  <div class="my-0">
+      <a href="{{repo.html_url}}" target="_blank">
+      {{repo.name | titlecase }}
+      </a> <br>
+      <p>
+       <span class="font-italic text-secondary">Description:</span> {{repo.description}}
+      </p>
+  </div>
+  <hr class="mt-0">
+</div>

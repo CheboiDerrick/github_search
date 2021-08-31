@@ -13,15 +13,14 @@ export class GithubUsersComponent implements OnInit {
 
   user!: User
   repos: Repo[] = [];
-  username: string = 'CheboiDerrick'
-  repo_name: string = ''
-  showAll: boolean = true
+  username: string = ''
+  show:boolean=false
 
   constructor(private _githubService: GithubServiceService) {
     console.log('Github Component Init...');
   }
 
-  search() {
+  searchUser() {
     this._githubService.updateUsername(this.username);
     this._githubService.requestUser().subscribe((user: any) => {
       this.user = user;
@@ -33,9 +32,14 @@ export class GithubUsersComponent implements OnInit {
     })
   }
 
+  showRepos(){
+    this.show=!this.show
+  }
+
 
   ngOnInit(): void {
     this._githubService.updateUsername('CheboiDerrick');
+    this.username='CheboiDerrick'
   }
 
 }
