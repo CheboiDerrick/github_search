@@ -2,7 +2,7 @@
     <h2>Search Repository</h2>
     <div class="input-group w-50 mt-3">
         <input type="search" class="form-control rounded" placeholder="Enter repository name" aria-label="Search"
-          aria-describedby="search-addon" />
+          aria-describedby="search-addon" [(ngModel)]='repoName' name="repoName" (keyup)='searchByRepo' />
       </div>
       <div class="list">
           <hr class="mb-0">

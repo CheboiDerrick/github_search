@@ -15,7 +15,6 @@ export class GithubUsersComponent implements OnInit {
   repos: Repo[] = [];
   username: string = 'CheboiDerrick'
   repo_name: string = ''
-  found!: any
   showAll: boolean = true
 
   constructor(private _githubService: GithubServiceService) {
@@ -34,15 +33,6 @@ export class GithubUsersComponent implements OnInit {
     })
   }
 
-  // findRepo() {
-  // this._githubService.searchByRepos(this.repo_name).subscribe((repos: any) => {
-  // this.repos = repos.items;
-  // console.log(repos.items)
-  // });
-  // this.found = this.repos.filter(repo => repo.name.toLocaleLowerCase().includes(this.repo_name.toLocaleLowerCase()));
-  // console.log(this.found);
-  // return this.found
-  // }
 
   ngOnInit(): void {
     this._githubService.updateUsername('CheboiDerrick');
