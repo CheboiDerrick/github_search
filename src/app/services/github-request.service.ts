@@ -12,8 +12,8 @@ export class GithubServiceService {
         console.log('Github Service Init...');
     }
 
-    requestUser() {
-        return this._http.get(`https://api.github.com/users/${this.username}?client_id=${environment.client_id}&client_secret=${environment.client_secret}`)
+    requestUser(username:string) {
+        return this._http.get(`https://api.github.com/users/${username}?client_id=${environment.client_id}&client_secret=${environment.client_secret}`)
     }
 
     searchByRepos(repoName: string) {
@@ -21,8 +21,8 @@ export class GithubServiceService {
         return this._http.get(`https://api.github.com/search/repositories?q=${this.repo_name}*`)
     }
 
-    getUserRepos() {
-        return this._http.get('https://api.github.com/users/' + this.username + '/repos?client_id=' + environment.client_id + '&client_secret=' + environment.client_secret)
+    getUserRepos(username:string) {
+        return this._http.get('https://api.github.com/users/' + username + '/repos?client_id=' + environment.client_id + '&client_secret=' + environment.client_secret)
 
     }    
 

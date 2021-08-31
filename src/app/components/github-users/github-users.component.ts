@@ -21,12 +21,12 @@ export class GithubUsersComponent implements OnInit {
   }
 
   searchUser() {
-    this._githubService.updateUsername(this.username);
-    this._githubService.requestUser().subscribe((user: any) => {
+    // this._githubService.updateUsername(this.username);
+    this._githubService.requestUser(this.username).subscribe((user: any) => {
       this.user = user;
       console.log(user);
     });
-    this._githubService.getUserRepos().subscribe((repos: any) => {
+    this._githubService.getUserRepos(this.username).subscribe((repos: any) => {
       this.repos = repos
       console.log(repos)
     })
@@ -38,8 +38,7 @@ export class GithubUsersComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._githubService.updateUsername('CheboiDerrick');
-    this.username='CheboiDerrick'
+    this._githubService.requestUser('CheboiDerrick');
   }
 
 }
