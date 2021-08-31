@@ -10,9 +10,9 @@ The user should also be able to:
 ## Screenshots
 - Landing Page
     <img src="./src/assets/HOME.png">
-- Create quote form
+- Search user 
     <img src="./src/assets/USER.png">
-- Quote Details and delete
+- Search repository
     <img src="./src/assets/REPO.png">
 
 
